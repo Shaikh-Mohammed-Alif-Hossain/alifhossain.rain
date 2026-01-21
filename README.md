@@ -3,284 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Official website of Alif Hossain - Student and Programmer">
   <title>alifhossain.rain - Official Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       background-color: #f5f7fa;
       color: #333;
     }
-    a {
-      text-decoration: none;
-      color: #0077cc;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #005fa3;
-    }
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    a { text-decoration: none; transition: 0.3s ease; }
+
     /* Header */
     header {
       background-color: #004d99;
       color: white;
       padding: 15px 0;
-      position: sticky;
+      position: fixed;
+      width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    nav ul li {
-      font-weight: 600;
-    }
+    .logo { font-size: 1.6rem; font-weight: bold; letter-spacing: 1px; }
+    nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
     nav ul li a {
-      color: white;
-      padding: 6px 10px;
+      color: rgba(255,255,255,0.8);
+      padding: 8px 12px;
       border-radius: 4px;
-      display: block;
+      font-size: 0.95rem;
     }
-    nav ul li a:hover,
-    nav ul li a.active {
-      background-color: #003366;
+    nav ul li a:hover, nav ul li a.active {
+      color: white;
+      background-color: rgba(255,255,255,0.1);
     }
-    /* Hero */
+
+    /* Facebook Menu Icon Style */
+    .nav-fb { color: #1877F2 !important; font-size: 1.2rem; }
+
+    /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(0, 77, 153, 0.7), rgba(0, 51, 102, 0.7)), 
+      background: linear-gradient(rgba(0, 77, 153, 0.8), rgba(0, 77, 153, 0.8)), 
                   url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-      height: 70vh;
+      height: 100vh;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
-      flex-direction: column;
+      padding-top: 60px;
     }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 15px;
-      max-width: 700px;
-    }
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-    .btn-primary {
-      background-color: #ffd700;
+    .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+    
+    .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    
+    .btn-main {
+      background: #ffd700;
       color: #222;
-      padding: 15px 35px;
-      font-weight: 700;
-      border: none;
+      padding: 12px 30px;
       border-radius: 30px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
+      font-weight: bold;
+      display: inline-block;
     }
-    .btn-primary:hover {
-      background-color: #e6c200;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    /* Sections */
-    section {
-      padding: 60px 0;
-      scroll-margin-top: 80px;
-    }
-    h2.section-title {
-      text-align: center;
-      color: #004d99;
-      margin-bottom: 40px;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-    }
-    /* About */
-    #about .content {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #444;
-      text-align: center;
-    }
-    /* Services */
-    #services .services-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .service-card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .service-card h3 {
-      color: #004d99;
-      margin-bottom: 15px;
-    }
-    .service-card p {
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-    /* Portfolio */
-    #portfolio .portfolio-list {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 0 20px;
-    }
-    .portfolio-item {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .portfolio-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .portfolio-item:hover .portfolio-img {
-      transform: scale(1.05);
-    }
-    .portfolio-info {
-      padding: 15px;
-      flex-grow: 1;
-    }
-    .portfolio-info h4 {
-      margin-bottom: 10px;
-      color: #004d99;
-    }
-    .portfolio-info p {
-      color: #555;
-      font-size: 0.95rem;
-    }
-    /* Contact */
-    #contact .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    #contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    #contact input, #contact textarea {
-      padding: 15px;
-      font-size: 1rem;
-      border: 1.5px solid #ccc;
-      border-radius: 6px;
-      resize: vertical;
-      transition: all 0.3s ease;
-    }
-    #contact input:focus, #contact textarea:focus {
-      outline: none;
-      border-color: #004d99;
-      box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.2);
-    }
-    #contact button {
-      background-color: #004d99;
+    .btn-fb {
+      background: #1877F2;
       color: white;
-      padding: 15px;
-      font-size: 1.1rem;
-      border: none;
+      padding: 12px 30px;
       border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      font-weight: 700;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    #contact button:hover {
-      background-color: #003366;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: #bbb;
-      text-align: center;
-      padding: 30px 10px;
-      font-size: 0.9rem;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .social-links a {
-      color: #bbb;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: #ffd700;
-    }
-    /* Responsive */
+    .btn-fb:hover { background: #166fe5; transform: translateY(-3px); }
+
+    /* Section Styles */
+    section { padding: 100px 20px 60px; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; color: #004d99; margin-bottom: 50px; font-size: 2.2rem; }
+
+    /* Contact Form */
+    .contact-form { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+    .btn-submit { background: #004d99; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
+
+    footer { background: #1a1a1a; color: #999; padding: 30px; text-align: center; }
+
     @media (max-width: 768px) {
-      header .container {
-        flex-direction: column;
-        gap: 15px;
-      }
-      nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .hero {
-        height: 60vh;
-      }
-      section {
-        padding: 40px 0;
-      }
+      .hero-content h1 { font-size: 2.5rem; }
+      nav ul { display: none; }
     }
   </style>
 </head>
@@ -291,73 +113,59 @@
       <div class="logo">alifhossain.rain</div>
       <nav>
         <ul>
-          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="https://www.facebook.com/share/16A8t2QkpF/" target="_blank" class="nav-fb"><i class="fab fa-facebook"></i></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <section class="hero" id="home">
-    <div class="container">
-      <h1>Welcome to alifhossain.rain</h1>
-      <p>Your official website for professional projects and services.</p>
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+    <div class="hero-content">
+      <h1>Hi, I'm Alif Hossain</h1>
+      <p>Student & Programmer | Problem Solver | Tech Enthusiast</p>
+      
+      <div class="btn-group">
+        <a href="#contact" class="btn-main">Get in Touch</a>
+        <a href="https://www.facebook.com/share/16A8t2QkpF/" target="_blank" class="btn-fb">
+          <i class="fab fa-facebook-f"></i> Facebook Profile
+        </a>
+      </div>
     </div>
   </section>
 
   <section id="about">
     <h2 class="section-title">About Me</h2>
-    <div class="content container">
-      <p>
-        Hello! I'm Alif Hossain, a passionate student and programmer dedicated to crafting clean and efficient solutions. I love learning new technologies and delivering projects that make a difference. With a strong foundation in computer science and hands-on experience in various programming languages, I strive to create meaningful digital experiences.
-      </p>
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <p>I am a dedicated student and programmer with a passion for creating digital solutions. I enjoy learning new frameworks and building projects that help people.</p>
     </div>
   </section>
 
-  <section id="services">
-    <h2 class="section-title">Services</h2>
-    <div class="services-list container">
-      <div class="service-card">
-        <h3>Web Development</h3>
-        <p>Building responsive, user-friendly websites with modern technologies like HTML5, CSS3, JavaScript, and popular frameworks.</p>
-      </div>
-      <div class="service-card">
-        <h3>Programming Projects</h3>
-        <p>Developing customized software solutions tailored to your specific needs using Python, Java, and other programming languages.</p>
-      </div>
-      <div class="service-card">
-        <h3>Technical Consulting</h3>
-        <p>Helping you choose the right tools, technologies, and strategies for your digital projects and business success.</p>
-      </div>
+  <section id="contact">
+    <h2 class="section-title">Message Me</h2>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/mqkwazpl" method="POST">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
     </div>
   </section>
 
-  <section id="portfolio">
-    <h2 class="section-title">Portfolio</h2>
-    <div class="portfolio-list">
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Task Management App" class="portfolio-img" />
-        <div class="portfolio-info">
-          <h4>Task Management App</h4>
-          <p>A web application for managing tasks efficiently with modern UI and real-time updates.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Business Automation" class="portfolio-img" />
-        <div class="portfolio-info">
-          <h4>Business Automation</h4>
-          <p>Custom software solution for automating business processes and increasing productivity.</p>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Responsive Website" class="portfolio-img" />
-        <div class="portfolio-info">
-          <h4>Responsive Website</h4>
-          <p>A mobile-friendly website optimized for performance, accessibility, and user experience.</p>
+  <footer>
+    <p>&copy; 2026 alifhossain.rain. All rights reserved.</p>
+    <div style="margin-top: 10px;">
+        <a href="https://www.facebook.com/share/16A8t2QkpF/" target="_blank" style="color: #999; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>ce, accessibility, and user experience.</p>
         </div>
       </div>
     </div>
